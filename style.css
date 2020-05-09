@@ -16,6 +16,11 @@ form
     margin-top: 50px;
 }
 
+#error span
+{
+    display:block;
+}
+
 button
 {
     width: 5%;
