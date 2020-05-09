@@ -3,26 +3,46 @@
 <head>
 	<meta charset="utf-8">
 	<script>
-	let actions = {
+
+	const searchEngines = {
 		'google': 'https://google.com/search',
 		'bing': 'https://bing.com/search',
 		'duckduckgo': 'https://duckduckgo.com/',
 		'ask': 'https://ask.com/web'
 	}
+
+    function validateInput()
+	{
+		let errorBox = document.getElementById("error");
+		errorBox.innerHTML = "";
+		let searchTextExists = document.querySelector("input[name=q]").value !== "";
+		let checkedRadioExists = document.querySelector("input[name=engine]:checked");
+		let invalidSearchText = "<span style='color:red;'> Error: Please input text for us to search for. </span>";
+		let invalidSelectRadio = "<span style='color:red;'> Error: Please select a search engine for us to search. </span>";
+		searchTextExists ? null : errorBox.innerHTML += invalidSearchText;
+		checkedRadioExists ? null : errorBox.innerHTML += invalidSelectRadio;
+		return searchTextExists && checkedRadioExists;
+	}
+
     window.addEventListener("load", function(){
 		let form = document.getElementById("searchForm");
 		form.addEventListener("submit", function(event) {
-			form.action = actions[document.querySelector("input[name=engine]:checked").value]
-		});
-    });
+		if(validateInput())	{
+			let formAction = searchEngines[document.querySelector("input[name=engine]:checked").value];
+			form.action = formAction;
+		}
+		else {
+			event.preventDefault();
+		}
+	});
 
+    });
 
 	</script>
 </head>
 
 <body>
-
-	<form id="searchForm" action="" method="GET">
+	<form id="searchForm" method="GET">
 	<input type="text" name="q" />
 	<input type="radio" value="google" name="engine" />
 	<label for="google">Google</label>
@@ -33,7 +53,7 @@
 	<input type="radio" value="ask" name="engine" />
 	<label for="ask">Ask</label>
 	<button value="Go">Go!</button>
-    <!-- TODO: add form elements -->
 	</form>
+	<div id="error"></div>
 
 </body>
