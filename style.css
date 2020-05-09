@@ -1,0 +1,34 @@
+html
+{
+    height:100%;
+}
+
+body
+{
+    background: linear-gradient(to bottom right,  darkslategrey, lightgrey);
+    background-repeat: no-repeat;
+    color: black;
+    text-align: center;
+}
+
+form
+{
+    margin: 50px;
+}
+
+button
+{
+    width: 5%;
+    color: white;
+    border-color: blue;
+    background-color: royalblue;
+}
+
+#error
+{
+    color: darkred;
+}
+
+
+
+
