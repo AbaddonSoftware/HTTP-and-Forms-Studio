@@ -13,17 +13,13 @@ body
 
 form
 {
+    min-width: 300px;
     margin-top: 50px;
 }
 
-#error span
+form button
 {
-    display:block;
-}
-
-button
-{
-    width: 5%;
+    width: 40px;
     color: white;
     border-color: blue;
     background-color: royalblue;
@@ -34,6 +30,10 @@ button
     color: darkred;
 }
 
+#error span
+{
+    display:block;
+}
 
 
 
