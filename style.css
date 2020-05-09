@@ -5,7 +5,7 @@ html
 
 body
 {
-    background: linear-gradient(to bottom right,  darkslategrey, lightgrey);
+    background: linear-gradient(to bottom right,  darkslategrey, white);
     background-repeat: no-repeat;
     color: black;
     text-align: center;
